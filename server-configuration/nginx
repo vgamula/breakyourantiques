@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name antiques.vgamula.me;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/var/www/breakyourantiques/breakyourantiques/breakyourantiques.sock;
+    }
+}

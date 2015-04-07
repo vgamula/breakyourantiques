@@ -7,14 +7,15 @@ RSYNC_EXCLUDES = ['local_settings.py', '.git', '*.pyc', 'htmlcov', 'mediafiles',
 
 
 def rsync():
-    rsync_project(remote_dir='/var/www/breakyourantiques/breakyourantiques', exclude=RSYNC_EXCLUDES, delete=True)
+    rsync_project(remote_dir='/var/www/breakyourantiques', exclude=RSYNC_EXCLUDES, delete=True)
 
 
 def install_dependencies():
-    with prefix('source /www/backend/venv/bin/activate'):
+    with prefix('source /var/www/breakyourantiques/venv/bin/activate'):
         run('/var/www/breakyourantiques/venv/bin/pip install -r /var/www/breakyourantiques/breakyourantiques/requirements.txt -U')
 
 
 def deploy():
     rsync()
     install_dependencies()
+    run('sudo restart breakyourantiques')

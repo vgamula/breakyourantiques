@@ -3,3 +3,6 @@ bootstrap:
 
 run:
 	python manage.py runserver
+
+deploy:
+	fab deploy
