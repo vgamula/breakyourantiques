@@ -18,3 +18,8 @@ def hello():
 @app.route("/vova")
 def hello2():
     return "my name is vova gamula!"
+
+
+@app.route("/test")
+def test():
+    return "test"
