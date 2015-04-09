@@ -1,7 +1,7 @@
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
-from application import app, db
+from antiques import app, db
 
 
 migrate = Migrate(app, db)
