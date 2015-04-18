@@ -8,7 +8,7 @@ def login_required(f):
     def decorated(*args, **kwargs):
         if not (g.user.is_authenticated() and g.user.is_active()):
             flash(u'You need to be logged in.', 'info')
-            return redirect(url_for('accounts.login', next=request.path))
+            return redirect(url_for('auth.login', next=request.path))
         return f(*args, **kwargs)
     return decorated
 

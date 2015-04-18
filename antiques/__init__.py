@@ -27,7 +27,7 @@ db = SQLAlchemy(app)
 # Setup login manager
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'user.login'
+login_manager.login_view = 'auth.login'
 
 
 @app.route("/")
@@ -36,5 +36,5 @@ def hello():
 
 
 # Registering blueprints:
-from antiques.accounts.views import accounts_module  # noqa
-app.register_blueprint(accounts_module, url_prefix='/user')
+from antiques.auth.views import auth_module  # noqa
+app.register_blueprint(auth_module, url_prefix='/user')
