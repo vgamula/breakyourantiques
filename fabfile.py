@@ -3,7 +3,7 @@ from fabric.contrib.project import rsync_project
 
 
 env.hosts = ['root@80.240.142.125']
-RSYNC_EXCLUDES = ['local_settings.py', '.git', '*.pyc', 'htmlcov', 'mediafiles', 'server', 'celerybeat-schedule']
+RSYNC_EXCLUDES = ['local_settings.py', '.git', '*.pyc', 'htmlcov', 'mediafiles']
 
 
 def rsync():

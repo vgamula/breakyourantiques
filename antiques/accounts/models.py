@@ -19,7 +19,6 @@ class User(ActiveRecordMixin, db.Model):
     is_staff = db.Column(db.Boolean, default=False)
     is_superuser = db.Column(db.Boolean, default=True)
 
-
     @property
     def full_name(self):
         return u'{} {}'.format(self.first_name, self.last_name)
@@ -29,3 +28,19 @@ class User(ActiveRecordMixin, db.Model):
 
     def __unicode__(self):
         return self.fullname
+
+    # Methods for Flask-Login
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return self.is_active
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return unicode(self.id)
+
+    # End Flask-Login methods

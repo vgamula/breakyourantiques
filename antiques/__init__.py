@@ -2,6 +2,12 @@ import os
 
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager
+
+from antiques.core.utils import route
+
+
+__all__ = ['route']
 
 
 env = os.environ.get('FLASK_ENV', 'development').lower()
@@ -15,19 +21,20 @@ if env == 'development':
 elif env == 'production':
     app.config.from_object('config.ProductionConfig')
 
+# Setup database
 db = SQLAlchemy(app)
-from antiques.accounts.models import User
+
+# Setup login manager
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'user.login'
+
 
 @app.route("/")
 def hello():
     return "hello, world!"
 
 
-@app.route("/vova")
-def hello2():
-    return "my name is vova gamula!"
-
-
-@app.route("/test")
-def test():
-    return "test"
+# Registering blueprints:
+from antiques.accounts.views import accounts_module  # noqa
+app.register_blueprint(accounts_module, url_prefix='/user')
