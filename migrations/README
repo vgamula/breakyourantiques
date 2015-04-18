@@ -1,1 +1,17 @@
 Generic single-database configuration.
+
+
+- you can mark db as up to date with:
+$ python manage.py db stamp
+
+
+- you apply new migrations with:
+$ python manage.py db upgrade
+
+
+- you can create new placeholder migration with:
+$ python manage.py db revision -m "revision name"
+
+
+and new diff migration with:
+$ python manage.py db revision --autogenerate -m "revision name"

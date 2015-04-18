@@ -4,7 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 def get_postgresql_url():
-    return 'postgres://@{host}:{port}/turfmapp'.format(
+    return 'postgres://postgres:postgres@{host}:{port}/antiques'.format(
         host=os.environ.get('POSTGRES_HOST', 'localhost'),
         port=5432,
     )
@@ -29,4 +29,4 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SECRET_KEY = 'not-secret'
     ASSETS_DEBUG = True
-    HOST_URL = 'http://dev.antiques.vgamula.me'
+    HOST_URL = 'http://antiques.dev:5000'
