@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
 from antiques import route, login_manager
+from antiques.core.decorators import logout_required
 
 from .models import User
 
@@ -14,5 +15,6 @@ def load_user(user_id):
 
 
 @route(accounts_module, '/login', methods=['GET', 'POST'])
+@logout_required
 def login():
     return render_template('accounts/login.html')
