@@ -16,7 +16,7 @@ elif env == 'production':
     app.config.from_object('config.ProductionConfig')
 
 db = SQLAlchemy(app)
-
+from antiques.accounts.models import User
 
 @app.route("/")
 def hello():
