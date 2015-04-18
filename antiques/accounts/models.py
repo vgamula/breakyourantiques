@@ -22,10 +22,10 @@ class User(ActiveRecordMixin, db.Model):
 
     @property
     def full_name(self):
-        return '{} {}'.format(self.first_name, self.last_name)
+        return u'{} {}'.format(self.first_name, self.last_name)
 
     def __repr__(self):
-        return '<User %r>' % self.email
+        return u'<User %r>' % self.email
 
     def __unicode__(self):
         return self.fullname
