@@ -16,6 +16,7 @@ class Config(object):
     SECRET_KEY = ''
     ASSETS_DEBUG = False
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'migrations')
+    UPLOAD_FOLDER = os.path.join(basedir, 'mediafiles')
 
 
 class ProductionConfig(Config):
