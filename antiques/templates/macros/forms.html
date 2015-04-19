@@ -1,0 +1,5 @@
+{% macro form_error(field) -%}
+    {% for error in field.errors %}
+        <p class="fieldError">{{ error }}</p>
+    {% endfor %}
+{%- endmacro %}

@@ -14,12 +14,12 @@ class User(ActiveRecordMixin, db.Model):
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(255))
-    last_name = db.String(db.String(255))
+    last_name = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), default=utc_now)
 
-    is_active = db.Column(db.Boolean, default=True)
-    is_staff = db.Column(db.Boolean, default=False)
-    is_superuser = db.Column(db.Boolean, default=True)
+    active = db.Column(db.Boolean, default=True)
+    staff = db.Column(db.Boolean, default=False)
+    superuser = db.Column(db.Boolean, default=False)
 
     @property
     def full_name(self):
@@ -37,7 +37,7 @@ class User(ActiveRecordMixin, db.Model):
         return True
 
     def is_active(self):
-        return self.is_active
+        return self.active
 
     def is_anonymous(self):
         return False

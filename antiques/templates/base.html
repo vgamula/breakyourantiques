@@ -81,7 +81,12 @@
                             </li>
                             <li>
                                 <a href="{{ url_for('auth.logout') }}">
-                                    Logout (Vova Gamula)
+                                    Logout (
+                                    {% if g.user.full_name %}
+                                        {{ g.user.full_name }}
+                                    {% else %}
+                                        {{ g.user.email }}
+                                    {% endif %})
                                 </a>
                             </li>
                         </ul>

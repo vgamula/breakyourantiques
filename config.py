@@ -30,3 +30,6 @@ class DevelopmentConfig(Config):
     SECRET_KEY = 'not-secret'
     ASSETS_DEBUG = True
     HOST_URL = 'http://antiques.dev:5000'
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
+    PROFILER_ENABLED = True
+    PROFILER_VERBOSE = False

@@ -1,6 +1,6 @@
 from flask.ext.wtf import Form
 from wtforms import TextField, PasswordField
-from wtforms.validators import Required, Email, StopValidation
+from wtforms.validators import Required, Email, StopValidation, EqualTo
 
 from .models import User
 
@@ -11,6 +11,10 @@ class LoginForm(Form):
 
 
 class RegisterForm(LoginForm):
+    confirm_password = PasswordField('Confirm password', [
+        Required(message=u'You should provide a password'),
+        EqualTo('password', message='Passwords must match')
+    ])
     email = TextField('Email Address', [Email(), Required(message=u'You should enter your email address.')])
     first_name = TextField('First Name', [Required(message=u'You should enter your first name.')])
     last_name = TextField('First Name', [Required(message=u'You should enter your last name.')])
