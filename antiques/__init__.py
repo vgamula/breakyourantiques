@@ -37,12 +37,7 @@ yaml_loader = YAMLLoader(current_dir + '/assets.yml')
 for name, bundle in yaml_loader.load_bundles().iteritems():
     assets_env.register(name, bundle)
 
-
-@app.route("/")
-def hello():
-    return "hello, world!"
-
-
 # Registering blueprints:
+from antiques.core.views import *  # noqa
 from antiques.auth.views import auth_module  # noqa
 app.register_blueprint(auth_module, url_prefix='/auth')
