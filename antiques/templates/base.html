@@ -13,7 +13,7 @@
     <link href='//fonts.googleapis.com/css?family=Montserrat:200,300,400,600,700' rel='stylesheet' type='text/css'/>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700' rel='stylesheet' type='text/css'/>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <title>{% if not title%}{% block title %}Market{% endblock%}{% else %}{{ title }}{% endif%}</title>
+    <title>{% if not title%}{% block title %}Market{% endblock%}{% else %}{{ title }} | Market{% endif%}</title>
 </head>
 
 <body>
@@ -90,6 +90,9 @@
                             <li>
                                 <a href="{{ url_for('auth.login') }}">Login</a>
                             </li>
+                            <li>
+                                <a href="{{ url_for('auth.register') }}">Register</a>
+                            </li>
                         </ul>
                     {% endif %}
                     <form action="http://nicolette.ro/" class="navbar-form navbar-search navbar-right" role="search">
@@ -133,13 +136,13 @@
                     <div class="col-md-3">
                     </div>
                     <div class="col-md-3 social">
-                        <div class="copy">Copyright © nicole_89</div>
+                        <div class="copy">Copyright 2015 © Volodymyr Gamula</div>
                         <ul class="social-network">
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://facebook.com/vgamula"><i class="fa fa-facebook"></i></a></li>
                             <li><a href=""><i class="fa fa-google-plus"></i></a></li>
                             <li><a href=""><i class="fa fa-pinterest"></i></a></li>
                             <li><a href=""><i class="fa fa-rss"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://twitter.com/vgamula"><i class="fa fa-twitter"></i></a></li>
                         </ul>
                     </div>
                 </div>

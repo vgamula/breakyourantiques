@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
-
+{% block title %}
+    Login | {{ super() }}
+{% endblock %}
 {% block content %}
-    Login page
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form action="{{ url_for('auth.login') }}"  class="loginbox form-horizontal">
+            <p>Login</p>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="inputEmail">Email<span class="required">*</span></label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4" for="inputPassword">Password<span class="required">*</span></label>
+                <div class="col-md-8">
+                    <input type="password" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary" type="button">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
