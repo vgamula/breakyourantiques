@@ -8,5 +8,7 @@ setuid root
 setgid www-data
 
 env PATH=/var/www/breakyourantiques/venv/bin
-chdir /var/www/breakyourantiques
-exec gunicorn --workers 3 --bind unix:breakyourantiques.sock -m 007 breakyourantiques.wsgi:app
+chdir /var/www/breakyourantiques/breakyourantiques
+export FLASK_ENV=production
+env FLASK_ENV=production
+exec gunicorn --workers 3 --bind unix:breakyourantiques.sock -m 007 wsgi:app

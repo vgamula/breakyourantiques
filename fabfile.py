@@ -12,9 +12,11 @@ def rsync():
 
 def start_server():
     run('sudo restart breakyourantiques')
+    run('sudo start breakyourantiques')
 
 
 def create_virtualenv():
+    run('rm -rf /var/www/breakyourantiques/venv')
     run('virtualenv /var/www/breakyourantiques/venv')
 
 
@@ -22,10 +24,12 @@ def install():
     rsync()
     create_virtualenv()
     install_dependencies()
+    run('rm /etc/nginx/sites-enabled/breakyourantiques')
+    run('rm /etc/nginx/sites-available/breakyourantiques')
     run('cp /var/www/breakyourantiques/breakyourantiques/server-configuration/nginx /etc/nginx/sites-available/breakyourantiques')
-    run('cp /var/www/breakyourantiques/breakyourantiques/server-configuration/upstart /etc/init/breakyourantiques')
+    run('cp /var/www/breakyourantiques/breakyourantiques/server-configuration/upstart /etc/init/breakyourantiques.conf')
     run('ln -s /etc/nginx/sites-available/breakyourantiques /etc/nginx/sites-enabled')
-    start_server()
+    run('sudo start breakyourantiques')
     run('/etc/init.d/nginx restart')
 
 
