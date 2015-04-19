@@ -37,4 +37,4 @@ def hello():
 
 # Registering blueprints:
 from antiques.auth.views import auth_module  # noqa
-app.register_blueprint(auth_module, url_prefix='/user')
+app.register_blueprint(auth_module, url_prefix='/auth')

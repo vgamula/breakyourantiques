@@ -33,7 +33,7 @@ def register():
         login_user(user)
         return redirect('/')
     return render_template(
-        'user/register.html',
+        'auth/register.html',
         title='Sign Up',
         form=form,
         next=next
